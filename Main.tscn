@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GridManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PlantManager.gd" type="Script" id=2]
 [ext_resource path="res://ZombieSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WaveManager.gd" type="Script" id=4]
 [ext_resource path="res://PlantSelectionMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://RedZombie.tscn" type="PackedScene" id=6]
-[ext_resource path="res://BasicEnemy.png" type="Texture" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -45,12 +43,8 @@ margin_right = 40.0
 margin_bottom = 14.0
 text = "Sun : 0"
 
-[node name="RedZombie" parent="UILayer/SunCounter" instance=ExtResource( 6 )]
-position = Vector2( 360, 209 )
-scale = Vector2( 2, 2 )
-
-[node name="BasicEnemy" type="Sprite" parent="UILayer/SunCounter/RedZombie"]
-position = Vector2( 22.5, 0 )
-texture = ExtResource( 7 )
-
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
+margin_left = -4.0
+margin_top = 164.0
+margin_right = 47.0
+margin_bottom = 207.0
