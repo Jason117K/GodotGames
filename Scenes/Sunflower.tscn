@@ -18,5 +18,5 @@ scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
 
 [node name="SunTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 autostart = true

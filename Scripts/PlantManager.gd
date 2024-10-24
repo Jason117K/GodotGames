@@ -5,7 +5,7 @@ var selected_plant_scene = null  # Updated: Holds the selected plant scene
 var grid_size = 64 #64  # Assuming each grid cell is 64x64 pixels
 
 var grid_map = {}  # Dictionary to store occupied cells
-var sun_points = 50 
+var sun_points = 75 
 
 # Updated: Reference the PlantSelectionMenu dynamically
 func get_selected_plant():

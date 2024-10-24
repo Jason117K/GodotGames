@@ -18,10 +18,8 @@ func shoot_projectile():
 	projectile.position = position + Vector2(32, 0)  # Adjust starting position
 	get_parent().add_child(projectile)  # Add the projectile to the game layer
 
-
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("Zombies"):
-		print(" dying")
-		body.take_damage(25)  # Reduce health when a zombie collides
-		if health <= 0:
-			queue_free()  # Remove plant if health reaches zero
+func take_damage(damage):
+	print("taking damage, health is " , health)
+	health = health - damage
+	if(health <= 0):
+		queue_free()

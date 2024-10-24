@@ -1,6 +1,6 @@
 extends Area2D
 
-var sun_value = 25  # Amount of sun points generated
+var sun_value = 50  # Amount of sun points generated
 var health = 100
 var SunScene = preload("res://Scenes/Sun.tscn")  # Adjust the path to your sun sprite scene
 

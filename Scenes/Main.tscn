@@ -16,7 +16,7 @@
 
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 878, 283 )
-r1_BaseZombies = 1
+r1_BaseZombies = 6
 r2_BaseZombies = 6
 r3_BaseZombies = 8
 r1_ConeheadZombies = 0
@@ -52,7 +52,7 @@ r3_BucketheadZombies = 0
 [node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
 
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
-StartDelay = 1
+StartDelay = 5
 Wave1_Interval = 4.0
 
 [node name="UILayer" type="Control" parent="."]
@@ -69,7 +69,7 @@ margin_bottom = -280.0
 [node name="Label" type="Label" parent="UILayer/SunCounter"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Sun : 50"
+text = "Sun : 75"
 
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
 margin_left = -1.0
