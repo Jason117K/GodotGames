@@ -9,10 +9,10 @@ script = ExtResource( 2 )
 [node name="GridManager" parent="." instance=ExtResource( 1 )]
 
 [node name="Button" type="Button" parent="."]
-margin_left = 359.0
-margin_top = 192.0
-margin_right = 511.0
-margin_bottom = 252.0
+margin_left = 349.0
+margin_top = 184.0
+margin_right = 501.0
+margin_bottom = 244.0
 text = "Start"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
