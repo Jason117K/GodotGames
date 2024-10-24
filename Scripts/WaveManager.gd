@@ -20,60 +20,30 @@ var numWave = 0
 
 func _ready():
 	$ProceedGame.wait_time = StartDelay
+	$ProceedGame.start()
 	$Wave1.wait_time = Wave1_Interval
 	$Wave2.wait_time = Wave2_Interval
 	for child in get_parent().get_parent().get_node("GameLayer").get_children():
 		if "ZombieSpawner" in child.name:
 			spawners.append(child)
-	 #start_wave()
-
-# Function to start a new wave
-func start_wave():
-	wave_active = true
-	zombies_spawned = 0
-	zombies_per_wave += 1  # Increase zombies per wave
-	spawn_interval = max(1, spawn_interval - 0.07)  # Decrease spawn interval but not below 1
-	print("Wave " + str(current_wave) + " started!")
-	spawn_zombies()
-
-# Function to spawn zombies at regular intervals
-func spawn_zombies():
-	if zombies_spawned < zombies_per_wave:
-		spawn_zombie()
-		zombies_spawned += 1
-		yield(get_tree().create_timer(spawn_interval), "timeout")  # Wait between spawns
-		spawn_zombies()
-	else:
-		wave_active = false
-		print("Wave " + str(current_wave) + " completed!")
-		current_wave += 1
-		# Start a new wave after a delay
-		yield(get_tree().create_timer(time_between_waves), "timeout")
-		start_wave()
-
-
-# Randomly choose a spawner and spawn a zombie
-func spawn_zombie():
-	if spawners.size() == 0:
-		print("Error: No spawners available!")
-		return  # Exit the function if there are no spawners
-
-	var random_spawner = spawners[randi() % spawners.size()]
-	var spawn_position = random_spawner.position
-	random_spawner.spawn_zombie()
-	
-
-
+			
+			
 func _on_ProceedGame_timeout():
+	$ProceedGame.stop()
+	print("ProceedGameTimeout")
+	for spawner in spawners:
+		spawner.increase_wave()
 	
 	match numWave:
 		0:
 			$ProceedGame.wait_time = 45
-			$Lane1.start()
+			$ProceedGame.start()
+			$Wave1.start()
 			numWave = numWave + 1
 		1:
 			$Wave2.start()
 			$ProceedGame.wait_time = 60
+			$ProceedGame.start()
 			numWave = numWave + 1
 		2:
 			$Wave3.start()
@@ -83,18 +53,39 @@ func _on_ProceedGame_timeout():
 
 
 func _on_Wave1_timeout():
+	
+	var wave_Interval = Wave1_Interval
+	var random_adjustment = rand_range(-1.0,0.1)
+	wave_Interval = wave_Interval + random_adjustment
+	
+	#print("Wave 1 Interval is : ", wave_Interval)
+	$Wave1.wait_time = wave_Interval
+	
 	for spawner in spawners:
-		spawner.spawn_base_zombie()
+		spawner.start_spawn_zombie()
 
 
 func _on_Wave2_timeout():
-	#Make call diff method, group zombies by wave not type
+	var wave_Interval = Wave2_Interval
+	
+	var random_adjustment = rand_range(-1.0,0.1)
+	
+	wave_Interval = wave_Interval + random_adjustment
+	
+	$Wave2.wait_time = wave_Interval
+	
+	
 	for spawner in spawners:
-		spawner.spawn_base_zombie()
+		spawner.start_spawn_zombie()
 
 
 func _on_Wave3_timeout():
-	#Make call diff method, group zombies by wave not type
+	var wave_Interval = Wave3_Interval
+	var random_adjustment = rand_range(-1.0,0.1)
+	wave_Interval = wave_Interval + random_adjustment
+	
+	$Wave3.wait_time = wave_Interval
+	
 	for spawner in spawners:
-		spawner.spawn_base_zombie()
+		spawner.start_spawn_zombie()
 

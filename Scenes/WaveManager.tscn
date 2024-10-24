@@ -6,18 +6,18 @@
 script = ExtResource( 1 )
 
 [node name="ProceedGame" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 3.0
 
 [node name="Wave1" type="Timer" parent="."]
-wait_time = 7.5
+wait_time = 7.0
 
-[node name="Wave2" type="Timer" parent="."]
-wait_time = 10.0
+[node name="Wave2" type="Timer" parent="." groups=["Zombie"]]
+wait_time = 9.0
 
 [node name="Wave3" type="Timer" parent="."]
+wait_time = 4.5
 
 [connection signal="timeout" from="ProceedGame" to="." method="_on_ProceedGame_timeout"]
-[connection signal="timeout" from="Wave1" to="." method="_on_Lane1_timeout"]
 [connection signal="timeout" from="Wave1" to="." method="_on_Wave1_timeout"]
 [connection signal="timeout" from="Wave2" to="." method="_on_Wave2_timeout"]
 [connection signal="timeout" from="Wave3" to="." method="_on_Wave3_timeout"]

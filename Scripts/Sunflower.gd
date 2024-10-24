@@ -1,6 +1,7 @@
 extends Area2D
 
 var sun_value = 25  # Amount of sun points generated
+var health = 100
 var SunScene = preload("res://Scenes/Sun.tscn")  # Adjust the path to your sun sprite scene
 
 func _ready():
@@ -28,3 +29,6 @@ func generate_sun():
 	
 	var game_manager = get_tree().root.get_node("Main/PlantManager")
 	#game_manager.add_sun(sun_value)
+	
+func take_damage(damage):
+	pass

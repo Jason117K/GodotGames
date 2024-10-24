@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GridManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/ZombieSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PlantSelectionMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Shrub.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -13,21 +15,45 @@
 [node name="GameLayer" type="Node2D" parent="."]
 
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
-position = Vector2( 878, 96 )
+position = Vector2( 878, 283 )
+r1_BaseZombies = 6
+r2_BaseZombies = 6
+r3_BaseZombies = 8
+r1_ConeheadZombies = 0
+r2_ConeheadZombies = 2
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
 
 [node name="ZombieSpawner2" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 900, 224 )
-wave1_spawn_interval = 4.0
-wave2_spawn_interval = 2.0
+r2_BaseZombies = 7
+r3_BaseZombies = 8
+r1_ConeheadZombies = 0
+r2_ConeheadZombies = 1
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
 
 [node name="ZombieSpawner1" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 868, 163 )
-wave1_spawn_interval = 5.0
-wave2_spawn_interval = 4.0
+r1_BaseZombies = 4
+r2_BaseZombies = 8
+r3_BaseZombies = 8
+r1_ConeheadZombies = 0
+r2_ConeheadZombies = 1
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
 
 [node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
 
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
+StartDelay = 1
+Wave1_Interval = 4.0
 
 [node name="UILayer" type="Control" parent="."]
 margin_left = 1.0
@@ -43,10 +69,59 @@ margin_bottom = -280.0
 [node name="Label" type="Label" parent="UILayer/SunCounter"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Sun : 75"
+text = "Sun : 50"
 
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
 margin_left = -1.0
 margin_top = 63.0
 margin_right = 50.0
 margin_bottom = 106.0
+
+[node name="Shrubs" type="Node" parent="."]
+
+[node name="Shrub" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 248, 352 )
+
+[node name="Shrub2" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 200, 344 )
+
+[node name="Shrub3" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 224, 376 )
+
+[node name="Shrub4" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 584, 96 )
+
+[node name="Shrub5" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 528, 104 )
+
+[node name="Shrub6" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 560, 88 )
+
+[node name="Shrub7" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 144, 64 )
+
+[node name="Shrub8" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 120, 80 )
+
+[node name="Shrub9" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 600, 376 )
+
+[node name="Shrub10" parent="Shrubs" instance=ExtResource( 6 )]
+position = Vector2( 840, 432 )
+
+[node name="Fish" type="Node2D" parent="."]
+
+[node name="Fish" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 408, 352 )
+
+[node name="Fish2" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 736, 96 )
+
+[node name="Fish3" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 256, 56 )
+
+[node name="Fish4" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 296, 96 )
+
+[node name="Fish5" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 152, 448 )

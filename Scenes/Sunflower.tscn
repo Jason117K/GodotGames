@@ -4,8 +4,9 @@
 [ext_resource path="res://Assets/Plants/SunEye2.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 16.0035
 
-[node name="Sunflower" type="Area2D"]
+[node name="Sunflower" type="Area2D" groups=["Plants"]]
 position = Vector2( 0, 1 )
 script = ExtResource( 1 )
 
@@ -17,5 +18,5 @@ scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
 
 [node name="SunTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true

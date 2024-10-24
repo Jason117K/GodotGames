@@ -4,104 +4,92 @@ extends Node2D
 var base_zombie_scene = preload("res://Scenes/BasicZombie.tscn")  
 var cone_zombie_scene = preload("res://Scenes/ConeHeadZombie.tscn") 
 var bucket_zombie_scene = preload("res://Scenes/BucketHeadZombie.tscn") 
-var spawn_interval = 5.0  # Time interval between spawns (seconds)
 
-export var wave1_spawn_interval = 3.0
-export var wave2_spawn_interval = 3.0
-export var wave3_spawn_interval = 3.0
+# Array to hold zombie types
+var wave1_zombies = []  
+var wave2_zombies = []  
+var wave3_zombies = []  
 
-#Refactor put in containers 
+# Lists of each Zombie per round
 export var r1_BaseZombies = 5
 export var r2_BaseZombies = 5
 export var r3_BaseZombies = 5
-
-var r1_BaseZombiesSpawned = 0
-var r2_BaseZombiesSpawned = 0
-var r3_BaseZombiesSpawned = 0
-
 
 export var r1_ConeheadZombies = 5
 export var r2_ConeheadZombies = 5
 export var r3_ConeheadZombies = 5
 
-var r1_ConeheadZombiesSpawned = 0
-var r2_ConeheadZombiesSpawned = 0
-var r3_ConeheadZombiesSpawned = 0
-
 export var r1_BucketheadZombies = 5
 export var r2_BucketheadZombies = 5
 export var r3_BucketheadZombies = 5
 
-var r1_BucketheadZombiesSpawned = 0
-var r2_BucketheadZombiesSpawned = 0
-var r3_BucketheadZombiesSpawned = 0
+# The current wave we are on
+var numWave = 0
 
 var random_adjustment = rand_range(-1.0, 1.0)
+export var waveDelay = 0.5
 
 func _ready():
-	# Create a timer to spawn zombies
-	var spawn_timer = Timer.new()
-	spawn_timer.wait_time = spawn_interval
-	spawn_timer.autostart = true
-	spawn_timer.connect("timeout", self, "_on_SpawnTimer_timeout")
-	add_child(spawn_timer)
+	populate_zombies(r1_BaseZombies,r1_ConeheadZombies,r1_BucketheadZombies,wave1_zombies)
+	populate_zombies(r2_BaseZombies,r2_ConeheadZombies,r2_BucketheadZombies,wave2_zombies)
+	populate_zombies(r3_BaseZombies,r3_ConeheadZombies,r3_BucketheadZombies,wave3_zombies)
+	$WaveDelay.wait_time = waveDelay
 
-func _on_SpawnTimer_timeout():
-	#spawn_base_zombie()
-	pass
-
-func spawn_base_zombie():
-	var zombie_instance = base_zombie_scene.instance()
-	zombie_instance.position = self.position  # Adjust position as needed
-	get_parent().add_child(zombie_instance)  # Add to the GameLayer
+func start_spawn_zombie():
+	random_adjustment = rand_range(-0.5, 0.5)
+	$WaveDelay.wait_time = waveDelay + random_adjustment
+	$WaveDelay.start()
 	
-func spawn_cone_zombie():
-	var zombie_instance = cone_zombie_scene.instance()
-	zombie_instance.position = self.position + Vector2(-30,0)  # Adjust position as needed
-	get_parent().add_child(zombie_instance)  # Add to the GameLayer
+func spawn_zombie():
 	
-func spawn_bucket_zombie():
-	var zombie_instance = bucket_zombie_scene.instance()
-	zombie_instance.position = self.position + Vector2(-10,0)  # Adjust position as needed
-	get_parent().add_child(zombie_instance)  # Add to the GameLayer
+	match numWave:
+		1:
+			if(wave1_zombies.size() > 0):
+				wave1_zombies.shuffle()
+				var zombie_type = wave1_zombies.pop_front()
+				var zombie_instance = zombie_type.instance()
+				zombie_instance.position = self.position #Adjust position as needed
+				get_parent().add_child(zombie_instance)  # Add to the GameLayer
+				#print("Spawn wave 1")
+				#print("Spawn1, Numwave is Now: ", numWave)
+
+		2:
+			if(wave2_zombies.size() > 0):
+				wave2_zombies.shuffle()
+				var zombie_type = wave2_zombies.pop_front()
+				var zombie_instance = zombie_type.instance()
+				zombie_instance.position = self.position + Vector2(-30,0)  #Adjust position as needed
+				get_parent().add_child(zombie_instance)  # Add to the GameLayer
+				print("Spawn wave 2")
+
+		3:
+			if(wave3_zombies.size() > 0):
+				wave3_zombies.shuffle()
+				var zombie_type = wave3_zombies.pop_front()
+				var zombie_instance = zombie_type.instance()
+				zombie_instance.position = self.position + Vector2(-10,0) #Adjust position as needed
+				get_parent().add_child(zombie_instance)  # Add to the GameLayer
+				print("Spawn wave 3")
+		_:
+			print("Value is something else")
+	
+# Function to populate the zombies array based on numbers provided
+func populate_zombies(base_zombie_count: int, conehead_zombie_count: int, 
+					buckethead_zombie_count: int, zombie_wave: Array):
+	# Add base zombies to the array
+	for i in range(base_zombie_count):
+		zombie_wave.append(base_zombie_scene)
+	# Add conehead zombies to the array
+	for i in range(conehead_zombie_count):
+		zombie_wave.append(cone_zombie_scene)
+		# Add buckethead zombies to the array
+	for i in range(buckethead_zombie_count):
+		zombie_wave.append(bucket_zombie_scene)
+		
+func increase_wave():
+	numWave = numWave + 1
 
 
-func _on_Wave1Timer_timeout():
-	$Wave1Timer.wait_time = wave1_spawn_interval
-	random_adjustment = rand_range(-0.4, 0.4)
-	wave1_spawn_interval = wave1_spawn_interval + random_adjustment
-	if r1_BaseZombiesSpawned < 8 :
-		spawn_base_zombie()
-		#print("R1 Base Zombie Spawned")
-		r1_BaseZombiesSpawned = r1_BaseZombiesSpawned + 1
-
-func _on_Wave2Timer_timeout():
-	$Wave1Timer.stop()
-	#print("R1 Over")
-	random_adjustment = rand_range(-0.4, 0.2)
-	wave2_spawn_interval = wave2_spawn_interval + random_adjustment
-	$Wave2Timer.wait_time = wave2_spawn_interval
-	if r2_ConeheadZombiesSpawned < 8 :
-		spawn_cone_zombie()
-		#print("R2 Cone Zombie Spawned")
-		r2_ConeheadZombiesSpawned = r2_ConeheadZombiesSpawned + 1
-	if r2_BaseZombiesSpawned < 8 :
-		spawn_base_zombie()
-		r2_BaseZombiesSpawned = r2_BaseZombiesSpawned + 1
-
-func _on_Wave3Timer_timeout():
-	$Wave2Timer.stop()
-	print("R2 Over")
-	$Wave3Timer.wait_time = wave3_spawn_interval
-	random_adjustment = rand_range(-0.4, 0.4)
-	wave3_spawn_interval = wave3_spawn_interval + random_adjustment
-	if r3_BaseZombiesSpawned < 5 :
-		spawn_base_zombie()
-		r3_BaseZombiesSpawned = r3_BaseZombiesSpawned + 1
-	if r3_ConeheadZombiesSpawned < 6 :
-		spawn_cone_zombie()
-		r3_ConeheadZombiesSpawned = r3_ConeheadZombiesSpawned + 1
-	if r3_BucketheadZombiesSpawned < 7 :
-		spawn_bucket_zombie()
-		r3_BucketheadZombiesSpawned = r3_BucketheadZombiesSpawned + 1
-
+func _on_WaveDelay_timeout():
+	spawn_zombie()
+	$WaveDelay.stop()

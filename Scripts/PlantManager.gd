@@ -5,7 +5,7 @@ var selected_plant_scene = null  # Updated: Holds the selected plant scene
 var grid_size = 64 #64  # Assuming each grid cell is 64x64 pixels
 
 var grid_map = {}  # Dictionary to store occupied cells
-var sun_points = 75 
+var sun_points = 50 
 
 # Updated: Reference the PlantSelectionMenu dynamically
 func get_selected_plant():
@@ -19,11 +19,11 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_LEFT:
 			var mouse_pos = get_global_mouse_position()
-			print("Clicked mouse_pos is : ")
-			print(mouse_pos)
+			#print("Clicked mouse_pos is : ")
+			#print(mouse_pos)
 			var grid_pos = mouse_pos_to_grid(mouse_pos)
-			print("Clicked grid_pos is : ")
-			print(grid_pos)
+			#print("Clicked grid_pos is : ")
+			#print(grid_pos)
 			grid_pos = Vector2(grid_pos.x,grid_pos.y+64)
 			if(grid_pos.x<769 && grid_pos.y<321):
 				place_plant(grid_pos)

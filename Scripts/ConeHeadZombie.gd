@@ -1,7 +1,7 @@
 extends Area2D
 
-var health = 60  # Health of the zombie
-var speed = 28   # Movement speed
+var health = 28 # Health of the zombie
+var speed = 38  # Movement speed
 
 func _process(delta):
 	position.x -= speed * delta  # Move left across the screen
