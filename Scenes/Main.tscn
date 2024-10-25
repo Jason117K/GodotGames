@@ -16,10 +16,10 @@
 
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 878, 283 )
-r1_BaseZombies = 6
+r1_BaseZombies = 0
 r2_BaseZombies = 6
 r3_BaseZombies = 8
-r1_ConeheadZombies = 0
+r1_ConeheadZombies = 1
 r2_ConeheadZombies = 2
 r3_ConeheadZombies = 3
 r1_BucketheadZombies = 0
