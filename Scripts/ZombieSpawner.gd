@@ -15,6 +15,8 @@ export var r1_BaseZombies = 5
 export var r2_BaseZombies = 5
 export var r3_BaseZombies = 5
 
+var baseZombies = []
+
 export var r1_ConeheadZombies = 5
 export var r2_ConeheadZombies = 5
 export var r3_ConeheadZombies = 5
@@ -34,6 +36,29 @@ func _ready():
 	populate_zombies(r2_BaseZombies,r2_ConeheadZombies,r2_BucketheadZombies,wave2_zombies)
 	populate_zombies(r3_BaseZombies,r3_ConeheadZombies,r3_BucketheadZombies,wave3_zombies)
 	$WaveDelay.wait_time = waveDelay
+	
+	baseZombies.append(r1_BaseZombies)
+	baseZombies.append(r2_BaseZombies)
+	baseZombies.append(r3_BaseZombies)
+	
+	
+	#var wavePreviewIcon = get_child(1)
+	#var previewText = wavePreviewIcon.get_child(2)
+	#var baseZombieText = previewText.get_child(1)
+	#print("WEWEW" , wavePreviewIcon.get_name())
+	#print("WEWEW" , baseZombieText.get_name())
+	#print("WEWEW : " , baseZombieLabel.get_name())
+	
+	var baseZombieLabel = get_child(1).get_child(2).get_child(1)
+	var coneZombieLabel = get_child(1).get_child(2).get_child(2)
+	var bucketZombieLabel = get_child(1).get_child(2).get_child(3)
+	
+	baseZombieLabel.text = "Base Zombies: " + str(r1_BaseZombies)
+	coneZombieLabel.text = "Cone Zombies: " + str(r1_ConeheadZombies)
+	bucketZombieLabel.text = "Bucket Zombies: " + str(r1_BucketheadZombies)
+	#baseZombieLabel1.text = "RARGARGAR"
+	#baseZombieLabel2.text = "pYWGFW"
+	#baseZombieLabel3.text = "rer"
 
 func start_spawn_zombie():
 	random_adjustment = rand_range(-0.5, 0.5)
@@ -52,6 +77,7 @@ func spawn_zombie():
 				get_parent().add_child(zombie_instance)  # Add to the GameLayer
 				#print("Spawn wave 1")
 				#print("Spawn1, Numwave is Now: ", numWave)
+				
 
 		2:
 			if(wave2_zombies.size() > 0):

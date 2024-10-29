@@ -16,8 +16,8 @@ config/icon="res://Assets/icon.png"
 
 [display]
 
-window/size/width=854
-window/size/height=480
+window/size/width=900
+window/size/height=515
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

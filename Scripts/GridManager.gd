@@ -13,6 +13,7 @@ func _ready():
 # Function to set tiles for the first 'row_count' rows
 func set_tiles_for_rows(row_start:int, row_count: int, tile_id: int):
 	 # Get the number of columns in the tilemap (you can also use your own logic to define it)
+	print("poo")
 	var map_width = tilemap.get_used_rect().size.x
 	# Loop through the specified number of rows
 	for y in range(row_start,row_count):

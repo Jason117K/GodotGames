@@ -11,6 +11,7 @@ var zombie_scene = preload("res://Scenes/BasicZombie.tscn")  # Path to the zombi
 
 var spawners = []  # Array to hold all ZombieSpawner nodes
 
+
 export var StartDelay = 10
 export var Wave1_Interval = 7.5
 export var Wave2_Interval = 9
@@ -45,6 +46,7 @@ func _on_ProceedGame_timeout():
 			$ProceedGame.wait_time = 60
 			$ProceedGame.start()
 			numWave = numWave + 1
+			# thing.callFunc(pass)
 		2:
 			$Wave3.start()
 			$ProceedGame.stop()

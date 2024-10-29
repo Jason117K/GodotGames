@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GridManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ZombieSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlantSelectionMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=7]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="PlantManager" parent="." instance=ExtResource( 1 )]
+
+[node name="GameLayer" type="Node2D" parent="."]
+
+[node name="ZombieSpawner1" parent="GameLayer" instance=ExtResource( 4 )]
+position = Vector2( 868, 163 )
+r1_BaseZombies = 4
+r2_BaseZombies = 8
+r3_BaseZombies = 8
+r1_ConeheadZombies = 0
+r2_ConeheadZombies = 1
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
+
+[node name="ZombieSpawner2" parent="GameLayer" instance=ExtResource( 4 )]
+position = Vector2( 900, 224 )
+r2_BaseZombies = 7
+r3_BaseZombies = 8
+r1_ConeheadZombies = 0
+r2_ConeheadZombies = 1
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
+
+[node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
+position = Vector2( 878, 283 )
+r1_BaseZombies = 0
+r2_BaseZombies = 6
+r3_BaseZombies = 8
+r1_ConeheadZombies = 1
+r2_ConeheadZombies = 2
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
+
+[node name="ZombieSpawner4" parent="GameLayer" instance=ExtResource( 4 )]
+position = Vector2( 904, 344 )
+r1_BaseZombies = 0
+r2_BaseZombies = 6
+r3_BaseZombies = 8
+r1_ConeheadZombies = 1
+r2_ConeheadZombies = 2
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
+
+[node name="ZombieSpawner5" parent="GameLayer" instance=ExtResource( 4 )]
+position = Vector2( 888, 104 )
+r1_BaseZombies = 0
+r2_BaseZombies = 6
+r3_BaseZombies = 8
+r1_ConeheadZombies = 1
+r2_ConeheadZombies = 2
+r3_ConeheadZombies = 3
+r1_BucketheadZombies = 0
+r2_BucketheadZombies = 0
+r3_BucketheadZombies = 0
+
+[node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
+
+[node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
+StartDelay = 5
+Wave1_Interval = 4.0
+
+[node name="UILayer" type="Control" parent="."]
+margin_left = 1.0
+margin_top = 321.0
+margin_right = 41.0
+margin_bottom = 361.0
+
+[node name="SunCounter" type="Control" parent="UILayer"]
+margin_top = -320.0
+margin_right = 40.0
+margin_bottom = -280.0
+
+[node name="Label" type="Label" parent="UILayer/SunCounter"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Sun : 75"
+
+[node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
+margin_left = 55.0
+margin_top = 87.0
+margin_right = 78.0
+margin_bottom = 106.0
+
+[node name="Shrubs" type="Node" parent="."]
+
+[node name="Fish" type="Node2D" parent="."]
+
+[node name="Fish5" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 336, 448 )
