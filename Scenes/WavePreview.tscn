@@ -23,6 +23,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -32.0
 margin_top = -48.0
 margin_right = 8.0
@@ -55,5 +56,10 @@ margin_right = -112.0
 margin_bottom = 95.0
 custom_fonts/font = SubResource( 2 )
 
+[node name="ToggleVisibility" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="timeout" from="ToggleVisibility" to="." method="_on_ToggleVisibility_timeout"]

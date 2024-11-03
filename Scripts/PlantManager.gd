@@ -22,11 +22,18 @@ func _input(event):
 			#print("Clicked mouse_pos is : ")
 			#print(mouse_pos)
 			var grid_pos = mouse_pos_to_grid(mouse_pos)
-			#print("Clicked grid_pos is : ")
-			#print(grid_pos)
+			print("Clicked grid_pos is : ")
+			print(grid_pos)
 			grid_pos = Vector2(grid_pos.x,grid_pos.y+64)
-			if(grid_pos.x<769 && grid_pos.y<321):
-				place_plant(grid_pos)
+			#print(get_parent().name)
+			if(get_parent().name == "Main"):
+				if(grid_pos.x<769 && grid_pos.y<321 && grid_pos.y > 128):
+					#print("Place Plant " , grid_pos)
+					place_plant(grid_pos)
+			else:
+				if(grid_pos.x<769 && grid_pos.y<385 && grid_pos.y > 64):
+					#print("Place Plant " , grid_pos)
+					place_plant(grid_pos)
 
 # Convert mouse position to a grid cell position
 func mouse_pos_to_grid(mouse_pos: Vector2) -> Vector2:
@@ -54,5 +61,6 @@ func place_plant(grid_pos: Vector2):
 		print("Not enough sun points!")
 
 func add_sun(amount):
+	print("Add Sun: " , amount)
 	sun_points += amount
 	get_parent().get_node("UILayer/SunCounter/Label").text = "Sun: " + str(sun_points)

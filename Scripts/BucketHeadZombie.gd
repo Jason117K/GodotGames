@@ -3,6 +3,10 @@ extends Area2D
 var health = 68 # Health of the zombie
 var speed = 10   # Movement speed
 
+
+func ready():
+	add_to_group("Alive-Enemies")
+
 func _process(delta):
 	position.x -= speed * delta  # Move left across the screen
 

@@ -1,4 +1,5 @@
 extends Node2D
+#ZombieSpawner
 
 # Path to the base zombie scene
 var base_zombie_scene = preload("res://Scenes/BasicZombie.tscn")  
@@ -31,6 +32,11 @@ var numWave = 0
 var random_adjustment = rand_range(-1.0, 1.0)
 export var waveDelay = 0.5
 
+#Onready var???
+var baseZombieLabel 
+var coneZombieLabel 
+var bucketZombieLabel 
+
 func _ready():
 	populate_zombies(r1_BaseZombies,r1_ConeheadZombies,r1_BucketheadZombies,wave1_zombies)
 	populate_zombies(r2_BaseZombies,r2_ConeheadZombies,r2_BucketheadZombies,wave2_zombies)
@@ -41,24 +47,24 @@ func _ready():
 	baseZombies.append(r2_BaseZombies)
 	baseZombies.append(r3_BaseZombies)
 	
+	#if self.children.size() > 1 :
+	#	baseZombieLabel = get_child(1).get_child(2).get_child(1)
+	#	coneZombieLabel = get_child(1).get_child(2).get_child(2)
+	#	bucketZombieLabel = get_child(1).get_child(2).get_child(3)
 	
-	#var wavePreviewIcon = get_child(1)
-	#var previewText = wavePreviewIcon.get_child(2)
-	#var baseZombieText = previewText.get_child(1)
-	#print("WEWEW" , wavePreviewIcon.get_name())
-	#print("WEWEW" , baseZombieText.get_name())
-	#print("WEWEW : " , baseZombieLabel.get_name())
+	#baseZombieLabel = get_child(1).get_child(2).get_child(1)
+	#coneZombieLabel = get_child(1).get_child(2).get_child(2)
+	#bucketZombieLabel = get_child(1).get_child(2).get_child(3)
 	
-	var baseZombieLabel = get_child(1).get_child(2).get_child(1)
-	var coneZombieLabel = get_child(1).get_child(2).get_child(2)
-	var bucketZombieLabel = get_child(1).get_child(2).get_child(3)
 	
-	baseZombieLabel.text = "Base Zombies: " + str(r1_BaseZombies)
-	coneZombieLabel.text = "Cone Zombies: " + str(r1_ConeheadZombies)
-	bucketZombieLabel.text = "Bucket Zombies: " + str(r1_BucketheadZombies)
-	#baseZombieLabel1.text = "RARGARGAR"
-	#baseZombieLabel2.text = "pYWGFW"
-	#baseZombieLabel3.text = "rer"
+	
+	
+
+	
+	#baseZombieLabel.text = "Base Zombies: " + str(r1_BaseZombies)
+	#coneZombieLabel.text = "Cone Zombies: " + str(r1_ConeheadZombies)
+	#bucketZombieLabel.text = "Bucket Zombies: " + str(r1_BucketheadZombies)
+
 
 func start_spawn_zombie():
 	random_adjustment = rand_range(-0.5, 0.5)
@@ -75,8 +81,13 @@ func spawn_zombie():
 				var zombie_instance = zombie_type.instance()
 				zombie_instance.position = self.position #Adjust position as needed
 				get_parent().add_child(zombie_instance)  # Add to the GameLayer
+				
 				#print("Spawn wave 1")
 				#print("Spawn1, Numwave is Now: ", numWave)
+				
+				#baseZombieLabel.text = "Base Zombies: " + str(r2_BaseZombies)
+				#coneZombieLabel.text = "Cone Zombies: " + str(r2_ConeheadZombies)
+				#bucketZombieLabel.text = "Bucket Zombies: " + str(r2_BucketheadZombies)
 				
 
 		2:
@@ -87,6 +98,9 @@ func spawn_zombie():
 				zombie_instance.position = self.position + Vector2(-30,0)  #Adjust position as needed
 				get_parent().add_child(zombie_instance)  # Add to the GameLayer
 				print("Spawn wave 2")
+				#baseZombieLabel.text = "Base Zombies: " + str(r3_BaseZombies)
+				#coneZombieLabel.text = "Cone Zombies: " + str(r3_ConeheadZombies)
+				#bucketZombieLabel.text = "Bucket Zombies: " + str(r3_BucketheadZombies)				
 
 		3:
 			if(wave3_zombies.size() > 0):

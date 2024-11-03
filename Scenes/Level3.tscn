@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/PlantSelectionMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/WaveManager_Lvl3.gd" type="Script" id=8]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 6 )
@@ -77,8 +78,10 @@ r3_BucketheadZombies = 0
 [node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
 
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
-StartDelay = 5
-Wave1_Interval = 4.0
+script = ExtResource( 8 )
+Wave1_Interval = 5.0
+Wave2_Interval = 5
+Wave3_Interval = 5.0
 
 [node name="UILayer" type="Control" parent="."]
 margin_left = 1.0

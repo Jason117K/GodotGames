@@ -1,5 +1,5 @@
 extends Node
-#WaveManager1
+#WaveManager3
 
 
 var current_wave = 1                # Current wave number
@@ -27,8 +27,8 @@ var numWave = 0
 
 var health = 5
 
-#var new_scene1 = preload("res://Scenes/StartScreen.tscn")  # Load the Main scene
-var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
+
+var new_scene = preload("res://Scenes/EndScreen.tscn")  # Load the Main scene
 
 #
 
@@ -50,7 +50,7 @@ func _ready():
 	$Wave1.wait_time = Wave1_Interval
 	$Wave2.wait_time = Wave2_Interval
 	for child in get_parent().get_parent().get_node("GameLayer").get_children():
-		if "ZombieSpawner" in child.name:
+		if "ZombieSpawner" in child.name and child.children.size() > 1:
 			spawners.append(child)
 			#print("Child is " + child.get_name())
 			#print("Child Kid is " + child.get_child(1).get_child(3).get_name())

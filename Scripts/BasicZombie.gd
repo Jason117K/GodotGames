@@ -12,6 +12,8 @@ var target_plant = null  # Holds reference to the plant being attacked
 # Raycast to detect plants in front of the zombie
 onready var attack_ray = $DMG_RayCast2D
 
+func ready():
+	add_to_group("Alive-Enemies")
 
 func _process(delta):
 	if not is_attacking:
@@ -21,7 +23,7 @@ func _process(delta):
 		# Check if there is a plant to attack
 		
 		if attack_ray.is_colliding():
-			print("Its collding")
+			#print("Its collding")
 			var collider = attack_ray.get_collider()
 			if collider:
 				if collider.is_in_group("Plants"):
@@ -38,13 +40,13 @@ func attack_plant(collider):
 
 # Stops the attack and resumes movement
 func stop_attack():
-	print("Stopping Attack")
+	#print("Stopping Attack")
 	is_attacking = false
 	target_plant = null
 
 
 func _on_AttackTimer_timeout():
-	print("fewhqwehiu;vBIOUiouqebgiop")
+	#print("Basic Zombie Attack Timer Timeout")
 	if(is_instance_valid(target_plant)):
 		if(target_plant.health >= 0):
 			target_plant.take_damage(attack_power)

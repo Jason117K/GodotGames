@@ -1,3 +1,4 @@
+#EndScreen.gd
 extends Node2D
 
 

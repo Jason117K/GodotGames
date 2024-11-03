@@ -1,5 +1,5 @@
 extends Node
-#WaveManager1
+#WaveManager2
 
 
 var current_wave = 1                # Current wave number
@@ -27,8 +27,8 @@ var numWave = 0
 
 var health = 5
 
-#var new_scene1 = preload("res://Scenes/StartScreen.tscn")  # Load the Main scene
-var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
+
+var new_scene = preload("res://Scenes/Level3.tscn")  # Load the Main scene
 
 #
 

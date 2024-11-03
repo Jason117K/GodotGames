@@ -10,6 +10,9 @@ var attack_power = 33
 
 onready var attack_ray = $DMGRayCast2D
 
+func ready():
+	add_to_group("Alive-Enemies")
+
 func _process(delta):
 	if not is_attacking:
 		$AnimatedSprite.play("Walk")
@@ -18,7 +21,7 @@ func _process(delta):
 		# Check if there is a plant to attack
 		
 		if attack_ray.is_colliding():
-			print("Its collding")
+			#print("Its collding")
 			var collider = attack_ray.get_collider()
 			if collider:
 				if collider.is_in_group("Plants"):
