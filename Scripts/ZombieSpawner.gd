@@ -46,24 +46,6 @@ func _ready():
 	baseZombies.append(r1_BaseZombies)
 	baseZombies.append(r2_BaseZombies)
 	baseZombies.append(r3_BaseZombies)
-	
-	#if self.children.size() > 1 :
-	#	baseZombieLabel = get_child(1).get_child(2).get_child(1)
-	#	coneZombieLabel = get_child(1).get_child(2).get_child(2)
-	#	bucketZombieLabel = get_child(1).get_child(2).get_child(3)
-	
-	#baseZombieLabel = get_child(1).get_child(2).get_child(1)
-	#coneZombieLabel = get_child(1).get_child(2).get_child(2)
-	#bucketZombieLabel = get_child(1).get_child(2).get_child(3)
-	
-	
-	
-	
-
-	
-	#baseZombieLabel.text = "Base Zombies: " + str(r1_BaseZombies)
-	#coneZombieLabel.text = "Cone Zombies: " + str(r1_ConeheadZombies)
-	#bucketZombieLabel.text = "Bucket Zombies: " + str(r1_BucketheadZombies)
 
 
 func start_spawn_zombie():
@@ -82,12 +64,6 @@ func spawn_zombie():
 				zombie_instance.position = self.position #Adjust position as needed
 				get_parent().add_child(zombie_instance)  # Add to the GameLayer
 				
-				#print("Spawn wave 1")
-				#print("Spawn1, Numwave is Now: ", numWave)
-				
-				#baseZombieLabel.text = "Base Zombies: " + str(r2_BaseZombies)
-				#coneZombieLabel.text = "Cone Zombies: " + str(r2_ConeheadZombies)
-				#bucketZombieLabel.text = "Bucket Zombies: " + str(r2_BucketheadZombies)
 				
 
 		2:
@@ -98,9 +74,7 @@ func spawn_zombie():
 				zombie_instance.position = self.position + Vector2(-30,0)  #Adjust position as needed
 				get_parent().add_child(zombie_instance)  # Add to the GameLayer
 				print("Spawn wave 2")
-				#baseZombieLabel.text = "Base Zombies: " + str(r3_BaseZombies)
-				#coneZombieLabel.text = "Cone Zombies: " + str(r3_ConeheadZombies)
-				#bucketZombieLabel.text = "Bucket Zombies: " + str(r3_BucketheadZombies)				
+		
 
 		3:
 			if(wave3_zombies.size() > 0):

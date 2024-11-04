@@ -27,25 +27,30 @@ var numWave = 0
 
 var health = 5
 
-#var new_scene1 = preload("res://Scenes/StartScreen.tscn")  # Load the Main scene
-var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
+var root
 
-#
+
+
+# Print the file path of the current scene
+#print("Scene path:", root.filename)
+
+
+var new_scene = preload("res://Scenes/Level1->2.tscn")  # Load the Tranistion scene
+var retry_scene = preload("res://Scenes/RestartScene.tscn")
+
 
 func _physics_process(delta):
 	if(checkEndLevel):
 		if get_tree().get_nodes_in_group("Alive-Enemies").size() == 0:
 			end_level()
-			pass
 
 func end_level():
 	#var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
 	get_tree().change_scene_to(new_scene)       # Switch to the Main scene
-	pass
-	
-	
 	
 func _ready():
+	# Get the root node of the current scene
+	root = get_tree().current_scene
 
 	$Wave1.wait_time = Wave1_Interval
 	$Wave2.wait_time = Wave2_Interval
@@ -142,9 +147,13 @@ func _on_Wave3_timeout():
 	checkEndLevel = true
 
 
-
+#Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Alive-Enemies"):
-		pass
+		print("ALIVEEEE")
+		#Go to Restart Scene Pass Scene Path
+		retry_scene.retryScene = root.filename
+		get_tree().change_scene_to(retry_scene)
+		
 		#print("GLORP")
 	#print("HEHEHHE")

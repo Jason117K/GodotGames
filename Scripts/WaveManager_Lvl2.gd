@@ -28,7 +28,7 @@ var numWave = 0
 var health = 5
 
 
-var new_scene = preload("res://Scenes/Level3.tscn")  # Load the Main scene
+var new_scene = preload("res://Scenes/Level2->3.tscn")  # Load the Main scene
 
 #
 
@@ -142,7 +142,7 @@ func _on_Wave3_timeout():
 	checkEndLevel = true
 
 
-
+#Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Alive-Enemies"):
 		pass

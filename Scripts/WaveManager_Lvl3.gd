@@ -50,7 +50,7 @@ func _ready():
 	$Wave1.wait_time = Wave1_Interval
 	$Wave2.wait_time = Wave2_Interval
 	for child in get_parent().get_parent().get_node("GameLayer").get_children():
-		if "ZombieSpawner" in child.name and child.children.size() > 1:
+		if "ZombieSpawner" in child.name: #and child.children.size() > 1:
 			spawners.append(child)
 			#print("Child is " + child.get_name())
 			#print("Child Kid is " + child.get_child(1).get_child(3).get_name())
@@ -142,7 +142,7 @@ func _on_Wave3_timeout():
 	checkEndLevel = true
 
 
-
+#Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Alive-Enemies"):
 		pass

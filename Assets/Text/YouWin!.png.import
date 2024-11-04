@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayAgain.png-2c263085ab472c6940de6a68f2c8e2ff.stex"
+path="res://.import/YouWin!.png-1063819c2d3094ae9f11a0af68534ab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Text/PlayAgain.png"
-dest_files=[ "res://.import/PlayAgain.png-2c263085ab472c6940de6a68f2c8e2ff.stex" ]
+source_file="res://Assets/Text/YouWin!.png"
+dest_files=[ "res://.import/YouWin!.png-1063819c2d3094ae9f11a0af68534ab9.stex" ]
 
 [params]
 

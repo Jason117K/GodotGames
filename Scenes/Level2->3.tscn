@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Level2->3.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GridManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Text/YouWin!.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Text/Continue.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Text/PlayAgain.png" type="Texture" id=5]
+
+[node name="Level2->3" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="GridManager" parent="." instance=ExtResource( 2 )]
+
+[node name="Continue" type="Button" parent="GridManager"]
+margin_left = 342.0
+margin_top = 199.0
+margin_right = 555.0
+margin_bottom = 229.0
+
+[node name="Continue" type="Sprite" parent="GridManager/Continue"]
+position = Vector2( 100, 14 )
+texture = ExtResource( 4 )
+
+[node name="PlayAgain" type="Button" parent="GridManager"]
+margin_left = 342.0
+margin_top = 236.0
+margin_right = 555.0
+margin_bottom = 274.0
+icon = ExtResource( 5 )
+
+[node name="YouWin!" type="Sprite" parent="."]
+position = Vector2( 447, 148 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+
+[connection signal="pressed" from="GridManager/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="GridManager/PlayAgain" to="." method="_on_PlayAgain_pressed"]
