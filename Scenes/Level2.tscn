@@ -106,8 +106,8 @@ z_index = 3
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
 position = Vector2( -64, 192 )
 script = ExtResource( 9 )
-StartDelay = 5
-Wave1_Interval = 3.0
+StartDelay = 20
+Wave1_Interval = 1.0
 Wave2_Interval = 3
 Wave3_Interval = 3.0
 

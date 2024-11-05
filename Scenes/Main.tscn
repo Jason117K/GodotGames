@@ -73,8 +73,9 @@ z_index = 1
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
 position = Vector2( -64, 200 )
 script = ExtResource( 9 )
-Wave1_Interval = 5.0
-Wave2_Interval = 5
+StartDelay = 20
+Wave1_Interval = 1.0
+Wave2_Interval = 2
 Wave3_Interval = 5.0
 
 [node name="UILayer" type="Control" parent="."]

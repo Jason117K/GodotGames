@@ -107,7 +107,8 @@ z_index = 1
 position = Vector2( -56, 224 )
 z_index = 1
 script = ExtResource( 8 )
-Wave1_Interval = 5.0
+StartDelay = 20
+Wave1_Interval = 1.0
 Wave2_Interval = 5
 Wave3_Interval = 5.0
 

@@ -2,7 +2,7 @@
 extends Area2D
 
 var health = 10 # Health of the zombie
-var speed = 50 # Movement speed, was 34
+var speed = 150 # Movement speed, was 34
 var attack_power = 33
 
 

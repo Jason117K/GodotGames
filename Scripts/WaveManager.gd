@@ -47,6 +47,7 @@ func _physics_process(delta):
 func end_level():
 	#var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
 	get_tree().change_scene_to(new_scene)       # Switch to the Main scene
+	print("CHANGE - 1")
 	
 func _ready():
 	# Get the root node of the current scene
@@ -149,11 +150,13 @@ func _on_Wave3_timeout():
 
 #Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Alive-Enemies"):
+	print("ENTERED!")
+	#print(area.group)
+	print(area)
+	#var parent = area.get_parent()
+	#print(area.parent)
+	if "BasicZombie" in area.name:
 		print("ALIVEEEE")
-		#Go to Restart Scene Pass Scene Path
-		retry_scene.retryScene = root.filename
+		#Go to Restart Scene 
 		get_tree().change_scene_to(retry_scene)
-		
-		#print("GLORP")
-	#print("HEHEHHE")
+

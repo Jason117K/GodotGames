@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var retryScene
+var retryScene = "Cat"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,5 +15,11 @@ func _ready():
 
 
 func _on_Retry_pressed():
-	#get_tree().change_scene_to(Lvl3)
-	pass # Replace with function body.
+	print(self.name)
+	if(self.name == "RestartScene1"):
+		get_tree().change_scene("res://Scenes/Main.tscn")
+	elif(self.name == "RestartScene2"):
+		get_tree().change_scene("res://Scenes/Level2.tscn")
+	elif(self.name == "RestartScene3"):
+		get_tree().change_scene("res://Scenes/Level3.tscn")
+

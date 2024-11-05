@@ -30,6 +30,8 @@ var health = 5
 
 var new_scene = preload("res://Scenes/EndScreen.tscn")  # Load the Main scene
 
+var retry_scene = preload("res://Scenes/RestartScene3.tscn")
+
 #
 
 func _physics_process(delta):
@@ -40,6 +42,7 @@ func _physics_process(delta):
 
 func end_level():
 	#var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
+	print("CHANGE - 3")
 	get_tree().change_scene_to(new_scene)       # Switch to the Main scene
 	pass
 	
@@ -144,7 +147,7 @@ func _on_Wave3_timeout():
 
 #Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Alive-Enemies"):
-		pass
-		#print("GLORP")
-	#print("HEHEHHE")
+	if "BasicZombie" in area.name:
+		print("ALIVEEEE")
+		#Go to Restart Scene 
+		get_tree().change_scene_to(retry_scene)
