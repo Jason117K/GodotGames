@@ -124,7 +124,7 @@ margin_bottom = -280.0
 [node name="Label" type="Label" parent="UILayer/SunCounter"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Sun : 200
+text = "Blood : 200
 "
 
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
