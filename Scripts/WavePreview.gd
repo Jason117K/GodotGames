@@ -1,4 +1,5 @@
 extends Node2D
+#Wave Preview.gd
 
 
 var spawner
@@ -12,7 +13,7 @@ onready var visibility = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawner = get_parent()
-	print(spawner.get_name())
+	#print(spawner.get_name())
 	
 
 

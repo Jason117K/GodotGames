@@ -1,7 +1,7 @@
 extends Area2D
 
-var health = 28 # Health of the zombie
-var speed = 38  # Movement speed
+var health = 22 #28 # Health of the zombie
+var speed = 30 #38  # Movement speed
 
 var is_attacking = false # Whether or not we attacking
 var target_plant = null  # Holds reference to the plant being attacked
@@ -44,7 +44,6 @@ func stop_attack():
 
 
 func _on_AttackTimer_timeout():
-	print("fewhqwehiu;vBIOUiouqebgiop")
 	if(is_instance_valid(target_plant)):
 		if(target_plant.health >= 0):
 			target_plant.take_damage(attack_power)
@@ -53,11 +52,15 @@ func _on_AttackTimer_timeout():
 	else:
 		stop_attack()
 	
-	#$AnimatedSprite.play("Attack")
-	pass # Replace with function body.
 
 # Function to handle taking damage
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()  # Remove zombie when health is zero
+
+
+func _on_JustSpawned_timeout():
+	add_to_group("Alive-Enemies")
+	var group_size = get_tree().get_nodes_in_group("Alive-Enemies").size()
+	#print("Group Size is : " , group_size)

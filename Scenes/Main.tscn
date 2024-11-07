@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/WavePreview.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/WaveManager.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Environment/BloodTree.png" type="Texture" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -21,8 +22,6 @@ script = ExtResource( 10 )
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 878, 283 )
 r1_BaseZombies = 4
-r2_BaseZombies = 6
-r3_BaseZombies = 8
 r1_ConeheadZombies = 0
 r2_ConeheadZombies = 0
 r3_ConeheadZombies = 0
@@ -37,6 +36,7 @@ z_index = 1
 
 [node name="ZombieSpawner2" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 900, 224 )
+r1_BaseZombies = 2
 r2_BaseZombies = 7
 r3_BaseZombies = 8
 r1_ConeheadZombies = 0
@@ -53,7 +53,7 @@ z_index = 1
 
 [node name="ZombieSpawner1" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 868, 163 )
-r1_BaseZombies = 4
+r1_BaseZombies = 3
 r2_BaseZombies = 8
 r3_BaseZombies = 8
 r1_ConeheadZombies = 0
@@ -73,10 +73,9 @@ z_index = 1
 [node name="WaveManager" parent="GameLayer" instance=ExtResource( 2 )]
 position = Vector2( -64, 200 )
 script = ExtResource( 9 )
-StartDelay = 20
-Wave1_Interval = 1.0
-Wave2_Interval = 2
-Wave3_Interval = 5.0
+Wave1_Interval = 5.0
+Wave2_Interval = 10
+Wave3_Interval = 10.0
 
 [node name="UILayer" type="Control" parent="."]
 margin_left = 1.0
@@ -92,7 +91,8 @@ margin_bottom = -280.0
 [node name="Label" type="Label" parent="UILayer/SunCounter"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Sun : 75"
+text = "Sun : 75
+"
 
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
 margin_left = -1.0
@@ -101,6 +101,18 @@ margin_right = 50.0
 margin_bottom = 106.0
 
 [node name="Shrubs" type="Node" parent="."]
+
+[node name="BloodTree" type="Sprite" parent="Shrubs"]
+position = Vector2( -472, 288 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+offset = Vector2( 600, 56 )
+
+[node name="BloodTree2" type="Sprite" parent="Shrubs"]
+position = Vector2( -792, -80 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+offset = Vector2( 600, 56 )
 
 [node name="Shrub" parent="Shrubs" instance=ExtResource( 6 )]
 position = Vector2( 248, 352 )

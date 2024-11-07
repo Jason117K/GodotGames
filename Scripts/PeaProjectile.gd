@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 300  # Speed of the projectile
-var damage = 5  # Damage dealt to zombies
+var damage = 1  # Damage dealt to zombies
 
 func _process(delta):
 	position.x += speed * delta  # Move the projectile to the right

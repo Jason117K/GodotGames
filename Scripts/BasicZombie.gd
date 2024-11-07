@@ -1,8 +1,8 @@
 # BasicZombie.gd
 extends Area2D
 
-var health = 10 # Health of the zombie
-var speed = 150 # Movement speed, was 34
+var health = 7 #10 # Health of the zombie
+var speed = 30 # Movement speed, was 34
 var attack_power = 33
 
 
@@ -13,7 +13,7 @@ var target_plant = null  # Holds reference to the plant being attacked
 onready var attack_ray = $DMG_RayCast2D
 
 func ready():
-	add_to_group("Alive-Enemies")
+	pass
 
 func _process(delta):
 	if not is_attacking:
@@ -35,7 +35,7 @@ func attack_plant(collider):
 	target_plant = collider
 	$AnimatedSprite.play("Attack")
 	$AttackTimer.start()
-	pass
+	
 
 
 # Stops the attack and resumes movement
@@ -54,13 +54,16 @@ func _on_AttackTimer_timeout():
 			stop_attack()
 	else:
 		stop_attack()
-	
-	#$AnimatedSprite.play("Attack")
-	pass # Replace with function body.
-
 
 # Function to handle taking damage
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()  # Remove zombie when health is zero
+
+
+func _on_JustSpawned_timeout():
+	add_to_group("Alive-Enemies")
+	var group_size = get_tree().get_nodes_in_group("Alive-Enemies").size()
+	#print("Group Size is : " , group_size)
+

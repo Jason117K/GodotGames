@@ -150,9 +150,9 @@ func _on_Wave3_timeout():
 
 #Code Taking Damage Here 
 func _on_Area2D_area_entered(area):
-	print("ENTERED!")
+	#print("ENTERED!")
 	#print(area.group)
-	print(area)
+	#print(area)
 	#var parent = area.get_parent()
 	#print(area.parent)
 	if "BasicZombie" in area.name:

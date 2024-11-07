@@ -14,4 +14,6 @@ func _on_Continue_pressed():
 
 
 func _on_PlayAgain_pressed():
-	get_tree().reload_current_scene()
+	if(self.name == "Level1->2"):
+		get_tree().change_scene("res://Scenes/Main.tscn")
+	

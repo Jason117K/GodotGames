@@ -3,8 +3,10 @@ extends Area2D
 var health = 100
 var attack_speed = 1.5  # Seconds between shots
 var projectile_scene = preload("res://Scenes/PeaProjectile.tscn")  # Load the projectile scene
+var PlantManager
 
 func _ready():
+	PlantManager = get_parent().get_parent().get_node("PlantManager")
 	$ShootTimer.start()  # Start the shoot timer
 	$ShootTimer.connect("timeout", self, "_on_ShootTimer_timeout")
 
@@ -22,4 +24,5 @@ func take_damage(damage):
 	print("taking damage, health is " , health)
 	health = health - damage
 	if(health <= 0):
+		PlantManager.clear_space(self.global_position)
 		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/WaveManager_Lvl3.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/WavePreview.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Environment/BloodTree.png" type="Texture" id=10]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 6 )
@@ -26,8 +27,8 @@ r1_ConeheadZombies = 0
 r2_ConeheadZombies = 1
 r3_ConeheadZombies = 3
 r1_BucketheadZombies = 0
-r2_BucketheadZombies = 0
-r3_BucketheadZombies = 0
+r2_BucketheadZombies = 1
+r3_BucketheadZombies = 3
 
 [node name="WavePreview" parent="GameLayer/ZombieSpawner1" instance=ExtResource( 9 )]
 position = Vector2( 12, -3 )
@@ -41,8 +42,8 @@ r3_BaseZombies = 8
 r1_ConeheadZombies = 0
 r2_ConeheadZombies = 1
 r3_ConeheadZombies = 3
-r1_BucketheadZombies = 0
-r2_BucketheadZombies = 0
+r1_BucketheadZombies = 1
+r2_BucketheadZombies = 2
 r3_BucketheadZombies = 0
 
 [node name="WavePreview2" parent="GameLayer/ZombieSpawner2" instance=ExtResource( 9 )]
@@ -52,15 +53,15 @@ z_index = 1
 
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 878, 283 )
-r1_BaseZombies = 0
+r1_BaseZombies = 4
 r2_BaseZombies = 6
 r3_BaseZombies = 8
 r1_ConeheadZombies = 1
 r2_ConeheadZombies = 2
 r3_ConeheadZombies = 3
 r1_BucketheadZombies = 0
-r2_BucketheadZombies = 0
-r3_BucketheadZombies = 0
+r2_BucketheadZombies = 1
+r3_BucketheadZombies = 3
 
 [node name="WavePreview3" parent="GameLayer/ZombieSpawner3" instance=ExtResource( 9 )]
 position = Vector2( 2, 5 )
@@ -69,14 +70,13 @@ z_index = 1
 
 [node name="ZombieSpawner4" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 904, 344 )
-r1_BaseZombies = 0
 r2_BaseZombies = 6
 r3_BaseZombies = 8
 r1_ConeheadZombies = 1
 r2_ConeheadZombies = 2
 r3_ConeheadZombies = 3
-r1_BucketheadZombies = 0
-r2_BucketheadZombies = 0
+r1_BucketheadZombies = 1
+r2_BucketheadZombies = 1
 r3_BucketheadZombies = 0
 
 [node name="WavePreview4" parent="GameLayer/ZombieSpawner4" instance=ExtResource( 9 )]
@@ -86,15 +86,14 @@ z_index = 1
 
 [node name="ZombieSpawner5" parent="GameLayer" instance=ExtResource( 4 )]
 position = Vector2( 888, 104 )
-r1_BaseZombies = 0
 r2_BaseZombies = 6
 r3_BaseZombies = 8
 r1_ConeheadZombies = 1
 r2_ConeheadZombies = 2
 r3_ConeheadZombies = 3
 r1_BucketheadZombies = 0
-r2_BucketheadZombies = 0
-r3_BucketheadZombies = 0
+r2_BucketheadZombies = 1
+r3_BucketheadZombies = 3
 
 [node name="WavePreview5" parent="GameLayer/ZombieSpawner5" instance=ExtResource( 9 )]
 position = Vector2( -8, 0 )
@@ -107,10 +106,10 @@ z_index = 1
 position = Vector2( -56, 224 )
 z_index = 1
 script = ExtResource( 8 )
-StartDelay = 20
-Wave1_Interval = 1.0
-Wave2_Interval = 5
-Wave3_Interval = 5.0
+StartDelay = 11
+Wave1_Interval = 5.0
+Wave2_Interval = 35
+Wave3_Interval = 60.0
 
 [node name="UILayer" type="Control" parent="."]
 margin_left = 1.0
@@ -126,7 +125,7 @@ margin_bottom = -280.0
 [node name="Label" type="Label" parent="UILayer/SunCounter"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Sun : 75"
+text = "Sun : 200"
 
 [node name="PlantSelectionMenu" parent="UILayer" instance=ExtResource( 5 )]
 margin_left = 55.0
@@ -135,6 +134,16 @@ margin_right = 78.0
 margin_bottom = 106.0
 
 [node name="Shrubs" type="Node" parent="."]
+
+[node name="BloodTree" type="Sprite" parent="Shrubs"]
+position = Vector2( 440, 480 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="BloodTree2" type="Sprite" parent="Shrubs"]
+position = Vector2( 120, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
 
 [node name="Fish" type="Node2D" parent="."]
 
