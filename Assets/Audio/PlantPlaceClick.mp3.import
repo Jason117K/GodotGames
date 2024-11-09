@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlantPlaceClick.mp3-70d4f09a99084ffd11cc6e3ebf06e8a9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/PlantPlaceClick.mp3"
+dest_files=[ "res://.import/PlantPlaceClick.mp3-70d4f09a99084ffd11cc6e3ebf06e8a9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ZombieAttack.mp3-9116822feeb9448add12b4ed7502a128.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/ZombieAttack.mp3"
+dest_files=[ "res://.import/ZombieAttack.mp3-9116822feeb9448add12b4ed7502a128.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

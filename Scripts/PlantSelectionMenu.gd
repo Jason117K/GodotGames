@@ -29,11 +29,14 @@ func _ready():
 func _on_PeashooterButton_pressed():
 	selected_plant = peashooter_scene
 	print("Peashooter selected")
-
+	$UIClickAudio.play()
+	
 func _on_SunflowerButton_pressed():
 	selected_plant = sunflower_scene
 	print("Sunflower selected")
+	$UIClickAudio.play()
 	
 func _on_WalnutButton_pressed():
 	selected_plant = walnut_scene
 	print("Walnut selected")
+	$UIClickAudio.play()

@@ -91,13 +91,13 @@ func spawn_zombie():
 func populate_zombies(base_zombie_count: int, conehead_zombie_count: int, 
 					buckethead_zombie_count: int, zombie_wave: Array):
 	# Add base zombies to the array
-	for i in range(base_zombie_count):
+	for _i in range(base_zombie_count):
 		zombie_wave.append(base_zombie_scene)
 	# Add conehead zombies to the array
-	for i in range(conehead_zombie_count):
+	for _i in range(conehead_zombie_count):
 		zombie_wave.append(cone_zombie_scene)
 		# Add buckethead zombies to the array
-	for i in range(buckethead_zombie_count):
+	for _i in range(buckethead_zombie_count):
 		zombie_wave.append(bucket_zombie_scene)
 		
 func increase_wave():

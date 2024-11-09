@@ -34,6 +34,7 @@ func attack_plant(collider):
 	is_attacking = true
 	target_plant = collider
 	$AnimatedSprite.play("Attack")
+	$AttackAudioPlayer.play()
 	$AttackTimer.start()
 	
 
@@ -58,6 +59,7 @@ func _on_AttackTimer_timeout():
 # Function to handle taking damage
 func take_damage(damage):
 	health -= damage
+	$HitAudioPlayer.play()
 	if health <= 0:
 		queue_free()  # Remove zombie when health is zero
 
@@ -67,3 +69,12 @@ func _on_JustSpawned_timeout():
 	var group_size = get_tree().get_nodes_in_group("Alive-Enemies").size()
 	#print("Group Size is : " , group_size)
 
+
+
+func _on_AnimatedSprite_animation_finished():
+	#print("testing")
+	#print($AnimatedSprite.animation)
+	if("Attack" in $AnimatedSprite.animation):
+		print("Just Finished ", $AnimatedSprite.animation )
+		$AttackAudioPlayer.play()
+	pass # Replace with function body.

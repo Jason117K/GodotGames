@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/PlantSelectionMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Plants/SunflowerCARD.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Plants/PeashooterCARD.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Plants/WalnutCARD.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Audio/UIClick.mp3" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0 )
@@ -44,3 +45,6 @@ margin_right = 209.0
 margin_bottom = 83.0
 custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 4 )
+
+[node name="UIClickAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )

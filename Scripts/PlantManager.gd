@@ -15,7 +15,7 @@ func get_selected_plant():
 
 func ready():
 	#print(get_parent().get_name())
-	#sun_points = 75
+	
 	pass
 #384,256
 
@@ -56,13 +56,13 @@ func clear_space(passed_grid_pos):
 	print("Grid Map is : ", grid_map)
 	
 
-func get_cost(selected_plant_scene):
-	print(selected_plant_scene)
-	if("Sunflower" in selected_plant_scene.name):
+func get_cost(this_selected_plant_scene):
+	print(this_selected_plant_scene)
+	if("Sunflower" in this_selected_plant_scene.name):
 		plant_cost = 25
-	if("Peashooter" in selected_plant_scene.name):
+	if("Peashooter" in this_selected_plant_scene.name):
 		plant_cost = 50
-	if("Walnut" in selected_plant_scene.name):
+	if("Walnut" in this_selected_plant_scene.name):
 		plant_cost = 75
 
 # Place the selected plant on the grid
@@ -74,13 +74,13 @@ func place_plant(grid_pos: Vector2):
 		print("Cell already occupied!")
 		return
 	#print(grid_map)
-	var selected_plant_scene = get_selected_plant()  # Dynamically get the selected plant
+	selected_plant_scene = get_selected_plant()  # Dynamically get the selected plant
 	
 	if selected_plant_scene == null:
 		print("No plant selected!")
 		return
 	var plant_instance = selected_plant_scene.instance()
-	var selected_plant_cost = get_cost(plant_instance)
+	get_cost(plant_instance)
 	if sun_points >= plant_cost:  # Assume the plant costs 25 sun points
 		plant_instance.position = Vector2(grid_pos.x+32,grid_pos.y-32)
 		get_parent().get_node("GameLayer").add_child(plant_instance)
@@ -88,11 +88,29 @@ func place_plant(grid_pos: Vector2):
 		# Mark the cell as occupied and reduce sun points
 		grid_map[grid_pos] = plant_instance
 		sun_points -= plant_cost
-		get_parent().get_node("UILayer/SunCounter/Label").text = "Sun: " + str(sun_points)
+		get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
+		
+		#Play the sound
+		$PlacePlantAudioPlayer.play()
+		
 	else:
 		print("Not enough sun points!")
 
 func add_sun(amount):
 	print("Add Sun: " , amount)
 	sun_points += amount
-	get_parent().get_node("UILayer/SunCounter/Label").text = "Sun: " + str(sun_points)
+	get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
+	
+func play_sun_collect():
+	$SunCollectPlayer.play()
+	
+
+
+func _on_SetSun_timeout():
+	if(get_parent().name == "Main"):
+		sun_points = 75
+		get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
+	else:
+		sun_points = 200
+		get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
+

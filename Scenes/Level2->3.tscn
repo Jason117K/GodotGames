@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level2->3.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GridManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Text/YouWin!.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Text/Continue.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Text/PlayAgain.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Audio/Win2.mp3" type="AudioStream" id=6]
 
 [node name="Level2->3" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,6 +33,10 @@ icon = ExtResource( 5 )
 position = Vector2( 447, 148 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 
 [connection signal="pressed" from="GridManager/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="GridManager/PlayAgain" to="." method="_on_PlayAgain_pressed"]

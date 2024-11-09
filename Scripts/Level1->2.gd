@@ -10,10 +10,12 @@ func _ready():
 
 
 func _on_Continue_pressed():
+	$ButtonClickPlayer.play()
 	get_tree().change_scene_to(Lvl2)
 
 
 func _on_PlayAgain_pressed():
+	$ButtonClickPlayer.play()
 	if(self.name == "Level1->2"):
 		get_tree().change_scene("res://Scenes/Main.tscn")
 	
