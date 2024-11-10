@@ -9,7 +9,9 @@ func _ready():
 	#get_parent().get_node("GameLayer").add_child(plant_instance)
 						#Gets GameLayer/Gets Main
 	PlantManager = get_parent().get_parent().get_node("PlantManager")
+	$SunTimer.wait_time = 60
 	$SunTimer.start()  # Start the timer
+	
 	$SunTimer.connect("timeout", self, "_on_SunTimer_timeout")
 	
 

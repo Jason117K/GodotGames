@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/PlantManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WaveManager.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/WavePreview.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Environment/BloodTree.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Audio/SpookyBackGroundTrack.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/Shrub.tscn" type="PackedScene" id=12]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 6 )
@@ -33,7 +34,6 @@ r3_BucketheadZombies = 3
 
 [node name="WavePreview" parent="GameLayer/ZombieSpawner1" instance=ExtResource( 9 )]
 position = Vector2( 12, -3 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="ZombieSpawner2" parent="GameLayer" instance=ExtResource( 4 )]
@@ -49,7 +49,6 @@ r3_BucketheadZombies = 0
 
 [node name="WavePreview2" parent="GameLayer/ZombieSpawner2" instance=ExtResource( 9 )]
 position = Vector2( -20, 0 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="ZombieSpawner3" parent="GameLayer" instance=ExtResource( 4 )]
@@ -66,7 +65,6 @@ r3_BucketheadZombies = 3
 
 [node name="WavePreview3" parent="GameLayer/ZombieSpawner3" instance=ExtResource( 9 )]
 position = Vector2( 2, 5 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="ZombieSpawner4" parent="GameLayer" instance=ExtResource( 4 )]
@@ -82,7 +80,6 @@ r3_BucketheadZombies = 0
 
 [node name="WavePreview4" parent="GameLayer/ZombieSpawner4" instance=ExtResource( 9 )]
 position = Vector2( -24, 0 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="ZombieSpawner5" parent="GameLayer" instance=ExtResource( 4 )]
@@ -98,7 +95,6 @@ r3_BucketheadZombies = 3
 
 [node name="WavePreview5" parent="GameLayer/ZombieSpawner5" instance=ExtResource( 9 )]
 position = Vector2( -8, 0 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
@@ -107,7 +103,7 @@ z_index = 1
 position = Vector2( -56, 224 )
 z_index = 1
 script = ExtResource( 8 )
-StartDelay = 11
+StartDelay = 20
 Wave1_Interval = 5.0
 Wave2_Interval = 35
 Wave3_Interval = 60.0
@@ -149,7 +145,31 @@ texture = ExtResource( 10 )
 [node name="Fish" type="Node2D" parent="."]
 
 [node name="Fish5" parent="Fish" instance=ExtResource( 7 )]
-position = Vector2( 336, 448 )
+position = Vector2( 363, 448 )
+
+[node name="Fish6" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 712, 464 )
+
+[node name="Fish7" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 760, 440 )
+
+[node name="Fish8" parent="Fish" instance=ExtResource( 7 )]
+position = Vector2( 720, 424 )
+
+[node name="Shrub" parent="Fish" instance=ExtResource( 12 )]
+position = Vector2( 560, 32 )
+
+[node name="Shrub2" parent="Fish" instance=ExtResource( 12 )]
+position = Vector2( 592, 40 )
+
+[node name="Shrub3" parent="Fish" instance=ExtResource( 12 )]
+position = Vector2( 296, 40 )
+
+[node name="Shrub4" parent="Fish" instance=ExtResource( 12 )]
+position = Vector2( 72, 40 )
+
+[node name="Shrub5" parent="Fish" instance=ExtResource( 12 )]
+position = Vector2( 176, 24 )
 
 [node name="BackGroundMuisc" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )

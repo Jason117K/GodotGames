@@ -60,7 +60,7 @@ func _ready():
 			spawners.append(child)
 			#print("Child is " + child.get_name())
 			#print("Child Kid is " + child.get_child(1).get_child(3).get_name())
-			timers.append(child.get_child(1).get_child(3))
+			timers.append(child.get_child(1).get_child(2))
 			wavePreviewIcons.append(child.get_child(1))
 			
 	$ProceedGame.wait_time = StartDelay

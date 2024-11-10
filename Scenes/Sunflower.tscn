@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Sunflower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Plants/SunEye2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Plants/Animations/SunFlowerIdle-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Plants/Animations/EyeOutlineIdle-Sheet.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0035
@@ -23,11 +24,32 @@ region = Rect2( 128, 0, 64, 64 )
 atlas = ExtResource( 3 )
 region = Rect2( 192, 0, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 64, 64 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "defaultOutline",
 "speed": 5.0
 } ]
 
@@ -45,9 +67,9 @@ shape = SubResource( 1 )
 
 [node name="SunTimer" type="Timer" parent="."]
 wait_time = 8.5
-autostart = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
+animation = "defaultOutline"
 frame = 1
 playing = true

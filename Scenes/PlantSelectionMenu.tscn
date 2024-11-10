@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/PlantSelectionMenu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Plants/SunflowerCARD.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Plants/PeashooterCARD.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Plants/WalnutCARD.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Plants/SpyderrCARD2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Plants/EyeTower2CARD.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Plants/EyeTreeCARD2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Audio/UIClick.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Plants/WormMouthCARD.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0 )
@@ -30,14 +31,14 @@ rect_scale = Vector2( 0.5, 0.5 )
 margin_right = 67.0
 margin_bottom = 83.0
 custom_styles/normal = SubResource( 1 )
-icon = ExtResource( 3 )
+icon = ExtResource( 2 )
 
 [node name="SunflowerButton" type="Button" parent="HBoxContainer"]
 margin_left = 71.0
 margin_right = 138.0
 margin_bottom = 83.0
 custom_styles/normal = SubResource( 2 )
-icon = ExtResource( 2 )
+icon = ExtResource( 3 )
 
 [node name="WalnutButton" type="Button" parent="HBoxContainer"]
 margin_left = 142.0
@@ -46,5 +47,14 @@ margin_bottom = 83.0
 custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 4 )
 
+[node name="MawButton" type="Button" parent="HBoxContainer"]
+margin_left = 213.0
+margin_right = 280.0
+margin_bottom = 83.0
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 6 )
+
 [node name="UIClickAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[connection signal="pressed" from="HBoxContainer/MawButton" to="." method="_on_MawButton_pressed"]

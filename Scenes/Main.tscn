@@ -31,8 +31,7 @@ r2_BucketheadZombies = 0
 r3_BucketheadZombies = 0
 
 [node name="WavePreview" parent="GameLayer/ZombieSpawner3" instance=ExtResource( 8 )]
-position = Vector2( 2, 5 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -13, 5 )
 z_index = 1
 
 [node name="ZombieSpawner2" parent="GameLayer" instance=ExtResource( 4 )]
@@ -48,8 +47,7 @@ r2_BucketheadZombies = 0
 r3_BucketheadZombies = 0
 
 [node name="WavePreview" parent="GameLayer/ZombieSpawner2" instance=ExtResource( 8 )]
-position = Vector2( -20, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -35, 0 )
 z_index = 1
 
 [node name="ZombieSpawner1" parent="GameLayer" instance=ExtResource( 4 )]
@@ -65,8 +63,7 @@ r2_BucketheadZombies = 0
 r3_BucketheadZombies = 0
 
 [node name="WavePreview" parent="GameLayer/ZombieSpawner1" instance=ExtResource( 8 )]
-position = Vector2( 11, -5 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -4, -5 )
 z_index = 1
 
 [node name="GridManager" parent="GameLayer" instance=ExtResource( 3 )]
