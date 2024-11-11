@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/BasicZombie.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Zombies/Ghoul Sprite Sheet 62 x 33.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Audio/ZombieHit.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Audio/ZombieAttack.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/HitSmack.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/zombie-bite-96528.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 13.5 )
@@ -87,6 +87,7 @@ animations = [ {
 
 [node name="BasicZombie" type="Area2D" groups=["Zombie"]]
 scale = Vector2( 1.5, 1.5 )
+z_index = 1
 collision_layer = 2
 script = ExtResource( 1 )
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Zombies/Summoner 46x 44.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/ConeHeadZombie.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Audio/ZombieAttack.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Audio/ZombieHit.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/HitSmack.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 20 )
@@ -139,6 +139,7 @@ animations = [ {
 } ]
 
 [node name="ConeHeadZombie" type="Area2D" groups=["Zombie"]]
+z_index = 1
 collision_layer = 2
 script = ExtResource( 2 )
 

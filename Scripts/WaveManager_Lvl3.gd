@@ -32,6 +32,8 @@ var new_scene = preload("res://Scenes/EndScreen.tscn")  # Load the Main scene
 
 var retry_scene = preload("res://Scenes/RestartScene3.tscn")
 
+
+
 #
 
 func _physics_process(delta):
@@ -41,10 +43,9 @@ func _physics_process(delta):
 			pass
 
 func end_level():
-	#var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
 	print("CHANGE - 3")
 	get_tree().change_scene_to(new_scene)       # Switch to the Main scene
-	pass
+
 	
 	
 	

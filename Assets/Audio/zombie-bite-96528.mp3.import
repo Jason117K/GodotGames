@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zombie-bite-96528.mp3-eb6ec31708650a4e140d91661f72e810.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/zombie-bite-96528.mp3"
+dest_files=[ "res://.import/zombie-bite-96528.mp3-eb6ec31708650a4e140d91661f72e810.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

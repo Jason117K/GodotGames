@@ -4,7 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var health = 400
+var health = 650
 var PlantManager
 
 # Called when the node enters the scene tree for the first time.

@@ -1,7 +1,8 @@
 extends Area2D
+#ConeHeadZombie.gd
 
-var health = 22 #28 # Health of the zombie
-var speed = 30 #38  # Movement speed
+var health = 17 #22 #28 # Health of the zombie
+var speed = 29 #30 #38  # Movement speed
 
 var is_attacking = false # Whether or not we attacking
 var target_plant = null  # Holds reference to the plant being attacked

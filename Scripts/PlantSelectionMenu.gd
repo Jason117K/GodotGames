@@ -24,12 +24,12 @@ func _ready():
 		$HBoxContainer/PeashooterButton2.connect("pressed", self, "_on_PeashooterButton_pressed")
 		$HBoxContainer/SunflowerButton.connect("pressed", self, "_on_SunflowerButton_pressed")
 		$HBoxContainer/WalnutButton.connect("pressed", self, "_on_WalnutButton_pressed")
-		$HBoxContainer/MawButton.visible = true
+		$HBoxContainer/MawButton.visible = false
 	else: #root = Level3
 		$HBoxContainer/PeashooterButton2.connect("pressed", self, "_on_PeashooterButton_pressed")
 		$HBoxContainer/SunflowerButton.connect("pressed", self, "_on_SunflowerButton_pressed")
 		$HBoxContainer/WalnutButton.connect("pressed", self, "_on_WalnutButton_pressed")
-		#$HBoxContainer/MawButton.visible = false
+		$HBoxContainer/MawButton.visible = false
 
 	#print(root)
 	

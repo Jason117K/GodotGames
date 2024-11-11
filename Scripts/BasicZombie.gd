@@ -1,8 +1,8 @@
 # BasicZombie.gd
 extends Area2D
 
-var health = 7 #10 # Health of the zombie
-var speed = 30 # Movement speed, was 34
+var health = 6 #7 #10 # Health of the zombie
+var speed = 26 #30 # Movement speed, was 34
 var attack_power = 33
 
 

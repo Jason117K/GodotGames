@@ -108,9 +108,9 @@ func play_sun_collect():
 
 func _on_SetSun_timeout():
 	if(get_parent().name == "Main"):
-		sun_points = 300
+		sun_points = 75
 		get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
 	else:
-		sun_points = 1500
+		sun_points = 200
 		get_parent().get_node("UILayer/SunCounter/Label").text = "Blood: " + str(sun_points)
 

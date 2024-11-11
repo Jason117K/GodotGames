@@ -35,7 +35,7 @@ var root
 #print("Scene path:", root.filename)
 
 
-var new_scene = preload("res://Scenes/Level1->2.tscn")  # Load the Tranistion scene
+var new_scene = preload("res://Scenes/Level1--2.tscn")  # Load the Tranistion scene
 var retry_scene = preload("res://Scenes/RestartScene.tscn")
 
 
