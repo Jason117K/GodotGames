@@ -4,7 +4,7 @@ extends Node2D
 onready var tilemap = $TileMap
 
 # The ID of the tile you want to set (you can check this in the TileSet editor)
-var tile_id = 2  
+#var tile_id = 2  
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
