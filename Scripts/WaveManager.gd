@@ -39,15 +39,14 @@ var new_scene = preload("res://Scenes/Level1--2.tscn")  # Load the Tranistion sc
 var retry_scene = preload("res://Scenes/RestartScene.tscn")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(checkEndLevel):
 		if get_tree().get_nodes_in_group("Alive-Enemies").size() == 0:
 			end_level()
 
 func end_level():
-	#var new_scene = preload("res://Scenes/Level2.tscn")  # Load the Main scene
-	get_tree().change_scene_to(new_scene)       # Switch to the Main scene
-	print("CHANGE - 1")
+	assert(get_tree().change_scene_to(new_scene) == OK) # Switch to earlier defined new_scene
+
 	
 func _ready():
 	# Get the root node of the current scene
@@ -158,5 +157,7 @@ func _on_Area2D_area_entered(area):
 	if "BasicZombie" in area.name:
 		print("ALIVEEEE")
 		#Go to Restart Scene 
-		get_tree().change_scene_to(retry_scene)
+		assert(get_tree().change_scene_to(retry_scene) == OK)
+
+
 
